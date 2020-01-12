@@ -16,6 +16,10 @@ class WordGeneratorFromNumber extends React.Component {
         if (!words) {
         words = [];
         }
+        if (number < 0) {
+            words.push('minus');
+            number = Math.abs(number);
+        }
         var LESS_THAN_TWENTY = [
             'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
             'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'
