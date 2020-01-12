@@ -7,20 +7,45 @@ class WordGeneratorFromNumber extends React.Component {
         };
     }
     generateWord(number){
+        var remainder, word,
+        words = arguments[1];
+        if (number === 0) {
+            return !words ? 'zero' : words.join(' ').replace(/,$/, '');
+        }
+        // First run
+        if (!words) {
+        words = [];
+        }
         var LESS_THAN_TWENTY = [
             'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
             'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'
         ];
+        var TENTHS_LESS_THAN_HUNDRED = [
+            'zero', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'
+        ];
         if (number < 20){
-            return LESS_THAN_TWENTY[number];
+            remainder = 0;
+            word = LESS_THAN_TWENTY[number];
+        }
+        else if (number < 100){
+            remainder = number % 10;
+            word = TENTHS_LESS_THAN_HUNDRED[Math.floor(number / 10)];
+            if (remainder) {
+                word += '-' + LESS_THAN_TWENTY[remainder];
+                remainder = 0;
+            }
         }
         else
         return "Enter a Number";
+
+        words.push(word);
+        return this.generateWord(remainder, words);
         
       }
     onValueChange(e) {
         var num = parseInt(e.target.value, 10);
-        this.setState({"word":this.generateWord(num)})
+        let word = this.generateWord(num);
+        this.setState({"word":word});
       };
 
       
