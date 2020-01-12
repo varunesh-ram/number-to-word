@@ -1,4 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Number to Word
+
+this project converts the number -999999999 to 999999999 relevant words
+any other value other than this range will not be recognised as numeric value
 
 ## Available Scripts
 
