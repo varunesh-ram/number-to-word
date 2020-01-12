@@ -97,5 +97,25 @@ describe(("<WordGeneratorFromNumber/> component"), () => {
         wrapper.find('input').simulate('change', { target: { value: 98 } });
         expect(wrapper.state().word).toEqual("ninety-eight");
     });
+    it("should generate word for number 100 to 999", () => {
+        wrapper.find('input').simulate('change', { target: { value: 205 } });
+        expect(wrapper.state().word).toEqual("two hundred five");
+        wrapper.find('input').simulate('change', { target: { value: 314} });
+        expect(wrapper.state().word).toEqual("three hundred fourteen");
+        wrapper.find('input').simulate('change', { target: { value: 465 } });
+        expect(wrapper.state().word).toEqual("four hundred sixty-five");
+        wrapper.find('input').simulate('change', { target: { value: 541 } });
+        expect(wrapper.state().word).toEqual("five hundred forty-one");
+        wrapper.find('input').simulate('change', { target: { value: 698 } });
+        expect(wrapper.state().word).toEqual("six hundred ninety-eight");
+        wrapper.find('input').simulate('change', { target: { value: 754 } });
+        expect(wrapper.state().word).toEqual("seven hundred fifty-four");
+        wrapper.find('input').simulate('change', { target: { value: 812 } });
+        expect(wrapper.state().word).toEqual("eight hundred twelve");
+        wrapper.find('input').simulate('change', { target: { value: 996 } });
+        expect(wrapper.state().word).toEqual("nine hundred ninety-six");
+        wrapper.find('input').simulate('change', { target: { value: 400 } });
+        expect(wrapper.state().word).toEqual("four hundred");
+    });
 
   });
