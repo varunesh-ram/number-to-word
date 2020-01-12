@@ -43,6 +43,10 @@ class WordGeneratorFromNumber extends React.Component {
             remainder = number % 1000;
             word = this.generateWord(Math.floor(number / 1000)) + ' thousand,';    
         }
+        else if (number < 1000000000) {
+            remainder = number % 1000000;
+            word = this.generateWord(Math.floor(number / 1000000)) + ' million,';    
+        }
         else
         return "Enter a Number";
 

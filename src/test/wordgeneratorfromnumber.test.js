@@ -137,5 +137,11 @@ describe(("<WordGeneratorFromNumber/> component"), () => {
         wrapper.find('input').simulate('change', { target: { value: 999999 } });
         expect(wrapper.state().word).toEqual("nine hundred ninety-nine thousand, nine hundred ninety-nine");
     });
+    it("should generate word for number 1000000 to 999999999", () => {
+        wrapper.find('input').simulate('change', { target: { value: 999999999 } });
+        expect(wrapper.state().word).toEqual("nine hundred ninety-nine million, nine hundred ninety-nine thousand, nine hundred ninety-nine");
+        wrapper.find('input').simulate('change', { target: { value: 1000000} });
+        expect(wrapper.state().word).toEqual("one million");
+    });
 
   });
